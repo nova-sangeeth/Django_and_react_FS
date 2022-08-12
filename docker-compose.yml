@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./debug_django
+      dockerfile: backend.dockerfile
+    container_name: backend
+    volumes:
+      - ./debug_django/:/backend/
+    ports:
+      - "8000:8000"
+      - "7000:7000"
+    command: sh startup.sh
